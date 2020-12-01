@@ -5,7 +5,7 @@
 }
 
 .sidebarRow_icon {
-    color: lightslategray;
+    color: lightgrey;
     font-size: large !important;
 }
 
@@ -17,12 +17,12 @@
 }
 
 .sidebarRow:hover {
-    background-color: lightgrey;
+    background-color: lightgoldenrodyellow;
     cursor: pointer;
 }
 
 .sidebarRow:hover > .sidebarRow_icon {
-    color: brown
+    color: blueviolet
 }
 
 .sidebarRow:hover > .sidebarRow_title {
@@ -30,11 +30,11 @@
 }
 
 .sidebarRow.selected {
-    background-color: lightslategray;
+    background-color: lightgoldenrodyellow;
 }
 
 .sidebarRow.selected > .sidebarRow_icon {
-    color: brown
+    color: blueviolet
 }
 
 .sidebarRow.sidebarRow.selected > .sidebarRow_title {

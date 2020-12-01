@@ -68,3 +68,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+
+// Render all subjects (sidebar) 🌈
+// Render all courses (sidebar) 🌈
+// Click on a subject and see the associated courses 🌈
+// Click on a course to see the associated material (****)🌈
+// Click on a material and render it on a new page (****)🌈
+// Search contents by courses or subjects (****)
+// Add a virtual board to the side of the content page where anyone can type live and practice their learning and keep it saved for other students to see. Basically, a footnote holder for everyone for future reference (****)

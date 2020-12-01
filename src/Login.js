@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 class Login extends Component{
     state = {
-        username: "",
+        name: "",
         password: ""
     }
     handleChange = (e) => {
@@ -20,19 +20,19 @@ class Login extends Component{
                 Accept: "application/json"
             },
             body: JSON.stringify({
-                
-
-                    username: this.state.username,
+                instructor: {
+                    name: this.state.name,
                     password: this.state.password
+                }
                 
             })
         })
         .then(res => res.json())
         .then(userInfo => {
-            console.log(userInfo)
+           
             localStorage.setItem('UserInfo',JSON.stringify(userInfo))
-            localStorage.token=userInfo.token
-            console.log(localStorage)
+            localStorage.token=userInfo.jwt
+           
         })
     }
     render(){
@@ -41,7 +41,7 @@ class Login extends Component{
                 <h2>Log In</h2>
                 <form onSubmit={(e) => this.handleSubmit(e)}>
                     <label>Username</label>
-                    <input onChange={(e) => this.handleChange(e)} name="username" type="text" />
+                    <input onChange={(e) => this.handleChange(e)} name="name" type="text" />
                     <label>Password</label>
                     <input onChange={(e) => this.handleChange(e)} name="password" type="password" />
                     <input type="submit" />

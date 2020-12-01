@@ -1,6 +1,7 @@
 import "./App.css";
 import Header from "./Header";
 import SideBar from "./SideBar";
+import SideItems from "./SideItems";
 import SearchPage from "./SearchPage";
 import RecommendedVideos from "./RecommendedVideos";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -8,53 +9,67 @@ import Login from "./Login";
 import Signup from "./Signup";
 import { useEffect, useState } from "react";
 import ContentForm from "./ContentForm";
-
+import SubjectContainer from "./SubjectContainer";
+import ShowContent from "./ShowContent";
 
 function App() {
-  const [contents, setcontents] = useState([]);
+  const [contents, setContents] = useState([]);
+  const [current, setCurrent] = useState('')
   const [ins, setIns] = useState([]);
   const [token, settoken] = useState("");
-  const [subject, setsubject] = useState([])
+  const [subject, setsubject] = useState([]);
+  const [courses, setcourses] = useState([]);
+  const [search, setsearched] = useState("")
 
   useEffect(() => {
     fetch("http://localhost:3000/api/v1/contents")
       .then((res) => res.json())
       .then((contents) => {
-        setcontents(
-          contents,
+        console.log(contents)
+        setContents(contents);
+      });
+      // *****
+    // fetch("http://localhost:3000/api/v1/instructors")
+    // .then((res) => res.json())
+    // .then((ins) => {
+    //   console.log(ins);
+    //   setIns({
+    //     ins,
+    //   });
+    // });
+    // *****
+    fetch("http://localhost:3000/api/v1/subjects")
+      .then((res) => res.json())
+      .then((sub) => {
+        console.log(sub);
+        setsubject(
+          sub,
         );
       });
-      // fetch("http://localhost:3000/api/v1/instructors")
-      // .then((res) => res.json())
-      // .then((ins) => {
-      //   console.log(ins);
-      //   setIns({
-      //     ins,
-      //   });
-      // });
-      // fetch("http://localhost:3000/api/v1/subjects")
-      // .then((res) => res.json())
-      // .then((sub) => {
-      //   console.log(sub);
-      //   setsubject({
-      //     sub,
-      //   });
-      // });
+    fetch("http://localhost:3000/api/v1/courses")
+      .then((res) => res.json())
+      .then((courses) => {
+        console.log(courses);
+        setcourses(
+          courses,
+        );
+      });
   }, []);
-// console.log(subject.sub)
-//   console.log(subject.sub.map(course => {
-//     return course.courses
-//   }))
-  console.log(contents)
-  //console.log(ins);
+  // ****
+  // console.log(subject.sub)
+  //   console.log(subject.sub.map(course => {
+  //     return course.courses
+  //   }))
+  
+  
 
   const newInstructor = (ins) => {
-    console.log(ins);
+    
     fetch("http://localhost:3000/api/v1/instructors", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json"
+        Accept: "application/json",
       },
       body: JSON.stringify({
         instructor: {
@@ -76,46 +91,63 @@ function App() {
       });
   };
   const createContent = (content) => {
-    console.log("we here")
-    console.log(content);
+    console.log(content)
+    
     fetch("http://localhost:3000/api/v1/contents", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json"
+        Accept: "application/json",
       },
       body: JSON.stringify({
         course_id: content.course_id,
         instructor_id: content.instructor_id,
         content_type: content.content_type,
-        material: content.material,
+        material: content.material, 
+        likes: content.likes,
+        level: content.level,
+        title: content.title
       }),
     })
       .then((res) => res.json())
       .then((data) => {
-        setcontents(
-          ...contents, data
-        );
+        console.log(data)
+        setContents([...contents, data]);
       });
   };
-  
 
-  const handlelikes = (content)=> {
-    console.log(content)
-   ++content.likes
-   
-    fetch(`http://localhost:3000/api/v1/contents/${content.id}`, {
+const filterSubject = current => {
+  setCurrent(current)
+
+}
+
+const currentContent = courses.filter(content => {
+  return (
+  content.name.toLowerCase().includes(current.toLowerCase())
+  )
+})
+console.log(currentContent)
+
+
+  const handlelikes = (likedContent) => {
+    
+    ++likedContent.likes;
+
+    fetch(`http://localhost:3000/api/v1/contents/${likedContent.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json"
+        Accept: "application/json",
       },
       body: JSON.stringify({
-        content
-      })
-    }).then(res => res.json()).then(data => {
-      setcontents(data)
+        content: likedContent,
+      }),
     })
+      .then((res) => res.json())
+      // .then((data) => {
+      //   const filteredcont = contents.filter((content) => content.id != likedContent.id)
+      //   setContents([...filteredcont, data])
+      // });
     // .then(res => res.json())
     //   .then(patchedContent => {
     //   let contents = contents.map(content => {
@@ -123,36 +155,64 @@ function App() {
     //   });
     //   setcontents(contents)
     // });
+  };
+  
+  let currentSearch 
+   const searched = (searchedItem) => {
+    setsearched(searchedItem)
 
-}  
-
-const handleDelete = (id) => {
-    console.log(id)
-    fetch(`http://localhost:3000/api/v1/contents/${id}`, {
-      method: "DELETE"
-    }).then(()=> {
-      console.log(contents)
-      const newMat = contents.filter((content)=> content.id != id);
-      console.log(newMat)
-      setcontents(newMat)
-    })
+    
+    
   }
+  const filterSearched = subject.filter(sub => {
+   return(
+   sub.name.toLowerCase().includes(search.toLowerCase())
+   )
+    })
 
+  //[{}]
+
+ console.log(filterSearched)
+
+  const handleDelete = (id) => {
+    console.log("run delete", id)
+   
+    fetch(`http://localhost:3000/api/v1/contents/${id}`, {
+      method: "DELETE",
+    }).then(() => {
+      const newMat = contents.filter((content) => content.id != id);
+      setContents(newMat);
+    }) 
+      
+      
+    ;
+  };
 
   return (
     <div className="app">
       <Router>
-        <Header />
+        <Header searched={searched}/>
         <Switch>
-          <Route path="/search/:searchTerm">
+          {/* <Route path="/search/:searchTerm">
             <h1>Search Page</h1>
-          </Route>
+          </Route> */}
+          {/* <Route path="/subjects">
+          </Route> */}
           <Route path="/home">
             <div className="app_page">
-              <SideBar />
+            <SideItems subject={filterSearched} courses={courses}  filterSubject={filterSubject}/>
+              {/* <SideBar /> */}
               <ContentForm createContent={createContent} />
-              <RecommendedVideos contents={contents} deletedCont={handleDelete} newLikes={handlelikes}/>
+              <RecommendedVideos
+              currentContent={currentContent}
+                contents={contents}
+                deletedCont={handleDelete}
+                handlelikes={handlelikes}
+              />
             </div>
+          </Route>
+          <Route path="/video/:id">
+            <ShowContent/>
           </Route>
           <Route path="/">
             <Login />
@@ -163,6 +223,5 @@ const handleDelete = (id) => {
     </div>
   );
 }
-
 
 export default App;

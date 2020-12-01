@@ -8,7 +8,10 @@ function ContentForm({createContent}) {
         course_id: 1,
         instructor_id: 1,
         content_type:"",
-        material: ""
+        material: "",
+        title: "",
+        likes: 0,
+        level: 0
     });
 
     const handleChange = (e) => {
@@ -29,8 +32,10 @@ function ContentForm({createContent}) {
     return (
         <div>
              <form onSubmit={handleSubmit}>
-                    <input placeholder="material" name="material"  onChange={handleChange} />
+                    <input placeholder="title" name="title"  onChange={handleChange} />
                     <input placeholder="content-type" name="content_type"  onChange={handleChange} />
+                    <input placeholder="material" name="material"  onChange={handleChange} />
+                    <input placeholder="level" type="number" name="level"  onChange={handleChange} />
                     <button>Submit</button>
                 </form>
         </div>

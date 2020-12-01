@@ -9,8 +9,11 @@ import AppsIcon from '@material-ui/icons/Apps'
 import Avatar from '@material-ui/core/Avatar'
 import { Link } from "react-router-dom";
 
-function Header() {
+function Header({searched}) {
     const [inputSearch, setInputSearch] = useState("");
+
+    searched(inputSearch)
+
     return (
         <div className="header">
             <div className="header_left">

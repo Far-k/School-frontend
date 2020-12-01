@@ -1,13 +1,13 @@
 .searchPage {
-    flex: 0.8;
-    background-color: linen;
+    flex: 0.6;
+    background-color: peachpuff;
     padding: 20px 20px;
 }
 
 .searchPage_filter {
     display: flex;
     align-items: center;
-    color: linen;
+    color: rgb(221, 175, 129);
     font-size: xx-small !important;
 }
 
@@ -18,7 +18,7 @@
 .searchPage > hr {
     height: 1px;
     border: 0;
-    background-color: linen;
+    background-color: peachpuff;
     margin-top: 10px;
     margin-bottom: 10px;
 }
