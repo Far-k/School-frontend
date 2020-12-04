@@ -1,0 +1,38 @@
+
+.header_input > input {
+    
+    border: none;
+  
+    margin-left: 900px;
+}
+.header_input{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    
+  
+}
+.header_input input::-webkit-input-placeholder {
+    font-size: 20px;
+    line-height: 3;
+    color: darkolivegreen;
+    text-align: center;
+    background-color: lightcyan;
+    
+ 
+}
+.header h1 {
+    cursor: pointer;
+}
+.header_input input{
+    font-size:25px;
+    height: 30px;
+    width: 600px;
+    border-radius: 25px;
+    /* border: none; */
+    /* border-bottom: 10px solid #E8E8E8;  */
+    /* border-radius: %; */
+}
+.header_input > input:focus{
+    outline-width: 0;
+}

@@ -1,0 +1,18 @@
+.form_style input {
+    display: flex;
+    
+    margin-top: auto;
+    background-color: lightcyan;
+    border-radius: 50px;
+    
+    
+}
+
+.form_style h1 {
+    cursor: pointer;
+}
+
+.button {
+    color: cyan !important;
+    border-radius: 20px !important;
+}

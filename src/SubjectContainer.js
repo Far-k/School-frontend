@@ -1,5 +1,6 @@
 import React from 'react'
 import SubjectCard from './SubjectCard'
+import './Subject.css'
 
 function SubjectContainer({subject, courses, filterSubject}) {
     return (

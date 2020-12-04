@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button } from "@material-ui/core";
 
 function Courses({ subject, handleBtn }) {
     const [currentCourse, setCurrentCourse] = useState('test')
@@ -20,12 +21,10 @@ function Courses({ subject, handleBtn }) {
     return (
         <div>
         {console.log(currentCourse)}
-
+       
             {subject.courses.map((course) => {
                 return (
-                    
-                   
-                    <button
+                    <Button
                     type="button"
                     name={course.name}
                     value={currentCourse}
@@ -33,7 +32,7 @@ function Courses({ subject, handleBtn }) {
 
                     > 
                     {course.name}
-                    </button>
+                    </Button>
                 );
             })}
     

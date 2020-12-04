@@ -1,3 +1,26 @@
 .app_page {
-    display: flex;
+   
+ 
+  display: contents;
+  
 }
+.app h1 {
+   
+    display: flex;
+    justify-content: center;
+    color: black;
+    font-size: xx-large;
+    font-weight: bolder;
+    align-items: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+
+}
+
+/* .app_page {
+  background-image: url("https://media1.tenor.com/images/b4902a51f46086dce1e89b36b16fbfaf/tenor.gif?itemid=14837528");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  margin:100;
+} */

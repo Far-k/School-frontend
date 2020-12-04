@@ -2,7 +2,7 @@ import React from 'react';
 import './Recommendedvideos.css';
 import VideoCard from './VideoCard'
 
-function RecommendedVideos({contents, deletedCont, handlelikes, currentContent}) {
+function RecommendedVideos({contents, deletedCont, handlelikes, currentContent,SavedContents}) {
    console.log(contents)
    
 console.log(currentContent)
@@ -21,10 +21,10 @@ console.log(currentContent)
    
     return (
         <div className="recommendedVidÍeos">
-            <h2>Available Courses</h2>
+            <h2>FlashCards</h2>
             <div className="recommendedVideos_videos">
                 {object? object.map(content => {
-                return <VideoCard content={content} deletedCont={deletedCont} handlelikes={handlelikes}/>
+                return <VideoCard content={content} deletedCont={deletedCont} handlelikes={handlelikes} SavedContents={SavedContents}/>
                 }): null} 
             </div>
         </div>

@@ -79,3 +79,20 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 // Click on a material and render it on a new page (****)🌈
 // Search contents by courses or subjects (****)
 // Add a virtual board to the side of the content page where anyone can type live and practice their learning and keep it saved for other students to see. Basically, a footnote holder for everyone for future reference (****)
+
+// create  a model call it mystuff: user, array of my contents,
+// user has many mycontents & my contents belongs to user
+// controller mystuff index & Show & Create & delete
+//migration  instructor and empty array
+// fetch in the profile (get, post)
+
+
+// fix the mystuff button  >> header.css
+//take out the icons and the avatar
+//move the search to the top right
+//make the available courses disappeare from the page *render only on click
+//move the logout to the top right above the search
+//make a add content button >> onlick that's going to render the form to add content
+//edit the likes||delete||mystuff buttons >> change mystuff to Add to My Stuff
+//bring the video/content card to the middle of the page
+//how to play the video??

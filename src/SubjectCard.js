@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import "./SubjectCard.css"
 import Courses from './Courses'
+import { useHistory } from 'react-router-dom'
 
 function SubjectCard({subject, courses, filterSubject}) {
+  
 const [show, setShow] = useState(false)
 const [course, setCourse] = useState("")
 

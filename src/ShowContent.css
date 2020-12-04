@@ -1,0 +1,28 @@
+.show_card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.show_card{
+    margin: 10px;
+    border-radius: 25px;
+    box-shadow: 0px 6px 18px -9px rgba(0,0,0,0.75);
+    transition: transform 100ms ease-in;
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    /* background-color: rgba(255, 255, 255, 0.8);
+    width: 1000px;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center; */
+}
+
+.show_card:hover{
+    transform: scale(1.05)
+}
+.show_card img {
+    max-width: 200px;
+    min-height: 400px;
+}

@@ -1,0 +1,39 @@
+.log_in {
+    display: flex;
+    justify-content: center;
+    color: black;
+    font-size: smaller;
+    font-weight: 700;
+   font-family: fantasy;
+    align-items: center;
+    
+}
+
+.log_in label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.h2 {
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .container_login {
+    color: yellow;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+}
+
+.vertical_login {
+    width: 100px;
+  height: 100px;
+  color: yellow;
+}
+ */
+

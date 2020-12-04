@@ -1,24 +1,22 @@
-.searchPage {
-    flex: 0.6;
-    background-color: peachpuff;
-    padding: 20px 20px;
-}
-
-.searchPage_filter {
+.searchPage{
     display: flex;
-    align-items: center;
-    color: rgb(221, 175, 129);
-    font-size: xx-small !important;
+    justify-content: center;
 }
-
-.searchPage_filter > h2 {
-    margin-left: 10px;
+.searchPage input::-webkit-input-placeholder {
+    font-size: 20px;
+    line-height: 3;
+    text-align: center;
 }
-
-.searchPage > hr {
-    height: 1px;
-    border: 0;
-    background-color: peachpuff;
-    margin-top: 10px;
-    margin-bottom: 10px;
+.searchPage input{
+    border: none;
+    font-size:25px;
+    height: 30px;
+    width: 600px;
+    border-radius: 25px;
+    /* border: none; */
+    /* border-bottom: 10px solid #E8E8E8;  */
+    /* border-radius: %; */
+}
+.searchPage > input:focus{
+    outline-width: 0;
 }

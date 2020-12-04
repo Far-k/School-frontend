@@ -1,0 +1,25 @@
+
+
+.sign_up {
+    display: flex;
+    justify-content: center;
+    color: black;
+    font-size: smaller;
+    font-weight: 700;
+    font-family: fantasy;
+    align-items: center;
+    
+}
+
+.sign_up label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.h2 {
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

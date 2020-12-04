@@ -1,5 +1,6 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom';
+import './ShowContent.css'
 
 function ShowContent() {
  const location = useLocation();
@@ -8,12 +9,11 @@ function ShowContent() {
 
    
     return (
-        <div>
-            
-    {/* <h1>{mycontent.title}</h1>
-    <div className="videoCard_info">
-          <iframe className="content" height="100%" width="100%"  src={mycontent.content_type} frameBorder="0" alt="" title="bob"></iframe>
-      </div> */}
+        <div className="show_card">
+        <h1>{mycontent.title}</h1>
+        <div className="videoCard_info">
+          <img className="Study Materials" src={mycontent.material}  alt="" ></img>
+      </div>
         </div>
     )
 }
